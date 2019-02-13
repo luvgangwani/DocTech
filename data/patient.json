@@ -1,0 +1,47 @@
+[
+    {
+        "patientName": "John Doe",
+        "patientAddress": {
+            "addressApartmentNo": "Unit 2/5",
+            "addressStreet": "Panorama Street",
+            "addressSuburb": "Clayton",
+            "addressState": "VIC",
+            "addressPostCode": "3168"
+        },
+        "patientGender": "m",
+        "patientAge": 45,
+        "patientOccupation": "Plumber",
+        "created": "14/06/2009",
+        "updated": "12/02/2019"
+    },
+    {
+        "patientName": "Jane Doe",
+        "patientAddress": {
+            "addressApartmentNo": "1/28",
+            "addressStreet": "Arnott Street",
+            "addressSuburb": "Clayton",
+            "addressState": "VIC",
+            "addressPostCode": "3168"
+        },
+        "patientGender": "f",
+        "patientAge": 28,
+        "patientOccupation": "Marketing Head",
+        "created": "12/07/2005",
+        "updated": "11/01/2018"
+    },
+    {
+        "patientName": "Tim Doe",
+        "patientAddress": {
+            "addressApartmentNo": "Unit 16/19",
+            "addressStreet": "Auburn Grove",
+            "addressSuburb": "Hawthorn East",
+            "addressState": "VIC",
+            "addressPostCode": "3123"
+        },
+        "patientGender": "m",
+        "patientAge": 20,
+        "patientOccupation": "Student",
+        "created": "08/03/2012",
+        "updated": "11/02/2019"
+    }
+]

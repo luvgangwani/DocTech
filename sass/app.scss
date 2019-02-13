@@ -1,0 +1,22 @@
+@import url('../../node_modules/bootstrap/dist/css/bootstrap.css');
+
+body{
+    background-color: rgb(194, 3, 241);
+    color: #ffffff;
+}
+
+.bg-light{
+    background-color: transparent !important;
+    border: 2px solid #ffffff;
+    border-radius: 5px;
+
+    div.navbar-collapse{
+        ul.navbar-nav{
+            li{
+                a.nav-link{
+                    color: #ffffff;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,38 @@
+{
+  "name": "doctech",
+  "version": "1.0.0",
+  "description": "A Desktop application that helps doctors manage their patient information",
+  "main": "public/js/main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "webpack -wd",
+    "sass": "node-sass -w src/sass/ -o public/css/"
+  },
+  "author": "Luv Gangwani",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.2.2",
+    "@babel/node": "^7.2.2",
+    "@babel/preset-env": "^7.3.1",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.5",
+    "nodemon": "^1.18.10",
+    "webpack": "^4.29.3",
+    "webpack-cli": "^3.2.3"
+  },
+  "dependencies": {
+    "bootstrap": "^4.3.0",
+    "ejs": "^2.6.1",
+    "electron": "^4.0.4",
+    "electron-packager": "^13.0.1",
+    "express": "^4.16.4",
+    "jquery": "^3.3.1",
+    "mongodb": "^3.1.13",
+    "node-sass": "^4.11.0",
+    "popper.js": "^1.14.7",
+    "prop-types": "^15.7.1",
+    "react": "^16.8.1",
+    "react-dom": "^16.8.1"
+  }
+}
