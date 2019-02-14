@@ -1,7 +1,9 @@
-@import url('../../node_modules/bootstrap/dist/css/bootstrap.css');
+@import url('../../node_modules/bootstrap/dist/css/bootstrap.min.css');
+
+$background-color: rgb(194, 3, 241);
 
 body{
-    background-color: rgb(194, 3, 241);
+    background-color: $background-color;
     color: #ffffff;
 }
 
@@ -20,3 +22,25 @@ body{
         }
     }
 }
+
+form {
+    .card {
+        background-color: transparent;
+        border: 2px solid #ffffff;
+        border-radius: 5px;
+    }
+    
+    .btn-default{
+        border: 1px solid #ffffff;
+        border-radius: 5px;
+        color: #ffffff;
+    }
+
+    .btn-default:hover{
+        border: 1px solid #ffffff;
+        border-radius: 5px;
+        background-color: #ffffff;
+        color: $background-color
+    }
+}
+

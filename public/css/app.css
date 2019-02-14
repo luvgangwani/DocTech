@@ -1,4 +1,4 @@
-@import url("../../node_modules/bootstrap/dist/css/bootstrap.css");
+@import url("../../node_modules/bootstrap/dist/css/bootstrap.min.css");
 body {
   background-color: #c203f1;
   color: #ffffff; }
@@ -9,3 +9,19 @@ body {
   border-radius: 5px; }
   .bg-light div.navbar-collapse ul.navbar-nav li a.nav-link {
     color: #ffffff; }
+
+form .card {
+  background-color: transparent;
+  border: 2px solid #ffffff;
+  border-radius: 5px; }
+
+form .btn-default {
+  border: 1px solid #ffffff;
+  border-radius: 5px;
+  color: #ffffff; }
+
+form .btn-default:hover {
+  border: 1px solid #ffffff;
+  border-radius: 5px;
+  background-color: #ffffff;
+  color: #c203f1; }

@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from './Header';
 import Home from './Home';
+import AddNewPatient from './AddNewPatient';
 import PatientList from './PatientList';
 import patientData from '../../data/patient.json';
 
@@ -14,6 +15,7 @@ class MainInterface extends React.Component{
         }
         this.setContent = this.setContent.bind(this);
         this.homeClick = this.homeClick.bind(this);
+        this.addNewPatientClick = this.addNewPatientClick.bind(this);
         this.viewPatientClick = this.viewPatientClick.bind(this);
     }
 
@@ -25,6 +27,16 @@ class MainInterface extends React.Component{
             content: "home"
         });
     }
+    
+    addNewPatientClick(){
+        this.setState({
+            content: "addNewPatientFormDisplay"
+        });
+    }
+
+    addNewPatientSubmit(patientObj){
+        console.log(patientObj);
+    }
 
     viewPatientClick(){
         this.setState({
@@ -33,12 +45,15 @@ class MainInterface extends React.Component{
     }
 
     setContent(){
-        if (this.state.content === "viewPatientList"){
+        if (this.state.content === "home") {
+            return <Home />
+        }
+        else if(this.state.content === "addNewPatientFormDisplay"){
+            return <AddNewPatient onAddNewPatientSubmit={this.addNewPatientSubmit} />
+        }
+        else if (this.state.content === "viewPatientList"){
             return <PatientList
                     patientData = {this.state.patientData} />
-        }
-        else if (this.state.content === "home") {
-            return <Home />
         }
     }
 
@@ -47,6 +62,7 @@ class MainInterface extends React.Component{
             <div className = "container-fluid">
                 <Header
                 onHomeClick = {this.homeClick}
+                onAddNewPatientClick = {this.addNewPatientClick}
                 onViewPatientClick = {this.viewPatientClick} />
                 {this.setContent()}
             </div>
