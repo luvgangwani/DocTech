@@ -10,18 +10,18 @@ body {
   .bg-light div.navbar-collapse ul.navbar-nav li a.nav-link {
     color: #ffffff; }
 
-form .card {
-  background-color: transparent;
-  border: 2px solid #ffffff;
-  border-radius: 5px; }
-
-form .btn-default {
+.btn-default {
   border: 1px solid #ffffff;
   border-radius: 5px;
   color: #ffffff; }
 
-form .btn-default:hover {
+.btn-default:hover {
   border: 1px solid #ffffff;
   border-radius: 5px;
   background-color: #ffffff;
   color: #c203f1; }
+
+form .card {
+  background-color: transparent;
+  border: 2px solid #ffffff;
+  border-radius: 5px; }

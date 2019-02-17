@@ -1,17 +1,36 @@
 import React from 'react';
-import shortid from 'shortid';
 
-class AddNewPatient extends React.Component {
+class EditPatientRecord extends React.Component{
 
     constructor(props){
         super(props);
+
+        // bind methods
         this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    componentDidMount(){
+         // set control value
+        
+         let currentPatientObj = this.props.patientData[this.props.editPatientId];
+ 
+         this.refs.patientName.value = currentPatientObj.patientName;
+         this.refs.addressApartmentNo.value = currentPatientObj.patientAddress.addressApartmentNo;
+         this.refs.addressStreet.value = currentPatientObj.patientAddress.addressStreet;
+         this.refs.addressSuburb.value = currentPatientObj.patientAddress.addressSuburb;
+         this.refs.addressState.value = currentPatientObj.patientAddress.addressState;
+         this.refs.addressPostCode.value = currentPatientObj.patientAddress.addressPostCode;
+         this.refs.patientGender.value = currentPatientObj.patientGender;
+         this.refs.patientAge.value = currentPatientObj.patientAge;
+         this.refs.patientOccupation.value = currentPatientObj.patientOccupation;
+         this.refs.patientContactNumber.value = currentPatientObj.patientContactNumber;
+         this.refs.patientEmailAddress.value = currentPatientObj.patientEmailAddress;
     }
 
     handleSubmit(e){
         e.preventDefault();
 
-        let patientId = shortid.generate();
+        let patientId = this.props.editPatientId;
         let patientName = this.refs.patientName.value;
         let addressApartmentNo = this.refs.addressApartmentNo.value;
         let addressStreet = this.refs.addressStreet.value;
@@ -41,30 +60,14 @@ class AddNewPatient extends React.Component {
                 patientOccupation,
                 patientContactNumber,
                 patientEmailAddress,
-                created: Date.now(),
+                created: this.props.patientData[this.props.editPatientId].created,
                 updated: Date.now()
         }
 
-        this.props.onAddNewPatientSubmit(patientObj);
-        this.handleReset();
-    }
-
-    handleReset(){
-        this.refs.patientName.value = '';
-        this.refs.addressApartmentNo.value = '';
-        this.refs.addressStreet.value = '';
-        this.refs.addressSuburb.value = '';
-        this.refs.addressState.value = 'selectState';
-        this.refs.addressPostCode.value = '';
-        this.refs.patientGender.value = 'selectGender';
-        this.refs.patientAge.value = '';
-        this.refs.patientOccupation.value = '';
-        this.refs.patientContactNumber.value = '';
-        this.refs.patientEmailAddress.value = '';
+        this.props.onEditPatientRecordSubmit(patientObj);
     }
 
     render(){
-
         var stateDetails = [ // Make this configurable
             {
                 stateName:"Australia",
@@ -79,10 +82,9 @@ class AddNewPatient extends React.Component {
                 }
             }
         ]
-
         return(
             <div className="container-fluid">
-                    <h2>Add New Patient</h2>
+                    <h2>Edit Patient Record</h2>
                     <form>
                         <div className="form-group">
                             <label htmlFor="patientName">Name</label>
@@ -150,11 +152,10 @@ class AddNewPatient extends React.Component {
                             <input ref="patientEmailAddress" type="email" className="form-control" id="patientEmailAddress" aria-describedby="patientEmailAddress" placeholder="Enter Email Address" />
                         </div> 
                         <button type="button" className="btn btn-default" onClick={this.handleSubmit}>Submit</button>
-                        <button type="button" className="btn btn-default ml-2" onClick={this.handleReset}>Cancel</button> 
                     </form>
             </div>
-        )
+        );
     }
 }
 
-export default AddNewPatient;
+export default EditPatientRecord;

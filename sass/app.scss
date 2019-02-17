@@ -23,24 +23,24 @@ body{
     }
 }
 
+.btn-default{
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+    color: #ffffff;
+}
+
+.btn-default:hover{
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+    background-color: #ffffff;
+    color: $background-color
+}
+
 form {
     .card {
         background-color: transparent;
         border: 2px solid #ffffff;
         border-radius: 5px;
-    }
-    
-    .btn-default{
-        border: 1px solid #ffffff;
-        border-radius: 5px;
-        color: #ffffff;
-    }
-
-    .btn-default:hover{
-        border: 1px solid #ffffff;
-        border-radius: 5px;
-        background-color: #ffffff;
-        color: $background-color
     }
 }
 
