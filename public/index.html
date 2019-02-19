@@ -14,6 +14,23 @@
     <script type="text/javascript">
         var eRequire = require;
         var patientFile = require('path').resolve(__dirname, "..","data","patient.json");
+        var historyFile = require('path').resolve(__dirname, "..","data","history.json");
+        
+        function convertUnixTimeToDate(unixTimeStamp) {
+
+            unixTimeStamp = unixTimeStamp.toString().length <= 10 ? unixTimeStamp*1000 : unixTimeStamp;
+
+            let dateObj = new Date(unixTimeStamp);
+
+            let day = dateObj.getDate();
+            let month = dateObj.getMonth() + 1;
+            let year = dateObj.getFullYear();
+            let hours = dateObj.getHours();
+            let minutes = dateObj.getMinutes();
+            let seconds = dateObj.getSeconds();
+
+            return (`${day}/${month}/${year} ${hours}:${minutes}:${seconds}`);
+        }
     </script>
     <script src="js/bundle.js"></script>
     

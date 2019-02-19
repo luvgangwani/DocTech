@@ -7,6 +7,7 @@ class Patient extends React.Component {
         super(props);
         this.handlePatientRecordEdit = this.handlePatientRecordEdit.bind(this);
         this.handlePatientRecordDelete = this.handlePatientRecordDelete.bind(this);
+        this.handleViewPatientHistory = this.handleViewPatientHistory.bind(this);
     }
 
     handlePatientRecordEdit(e){
@@ -19,6 +20,10 @@ class Patient extends React.Component {
         this.props.onPatientRecordDelete(this.props.patientId);
     }
 
+    handleViewPatientHistory(e){
+        e.preventDefault();
+        this.props.onViewPatientHistory(this.props.patientId);
+    }
     render(){
         let patientName = this.props.patientName;
         let patientAddress = `${this.props.patientAddress.addressApartmentNo}, ${this.props.patientAddress.addressStreet}, ${this.props.patientAddress.addressSuburb}, ${this.props.patientAddress.addressState}-${this.props.patientAddress.addressPostCode}`
@@ -35,6 +40,7 @@ class Patient extends React.Component {
                 <p>{patientOccupation}</p>
                 <a href="#" className="btn btn-default" onClick={this.handlePatientRecordEdit}>Edit</a>
                 <a href="#" className="btn btn-default ml-2" onClick={this.handlePatientRecordDelete}>Delete</a>
+                <a href="#" className="btn btn-default ml-2" onClick={this.handleViewPatientHistory}>View Patient History</a>
                 <hr />
             </div>
 

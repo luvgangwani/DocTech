@@ -11,6 +11,7 @@ class PatientList extends React.Component {
         this.displayPatientList = this.displayPatientList.bind(this);
         this.patientRecordEdit = this.patientRecordEdit.bind(this);
         this.patientRecordDelete = this.patientRecordDelete.bind(this);
+        this.viewPatientHistory = this.viewPatientHistory.bind(this);
     }
 
     patientRecordEdit(patientId){
@@ -19,6 +20,12 @@ class PatientList extends React.Component {
 
     patientRecordDelete(patientId){
         this.props.onPatientRecordDelete(patientId);
+    }
+
+    viewPatientHistory(patientId){
+        let patientObj = this.props.patientData[patientId];
+
+        this.props.onViewPatientHistoryClick(patientObj);
     }
 
     displayPatientList(tempPatientData){ // try improving this code
@@ -38,7 +45,7 @@ class PatientList extends React.Component {
             }
 
             patientData.push(tempPatientObj);
-        })
+        });
 
         return(
             patientData.map((eachPatient, index) => (
@@ -46,7 +53,8 @@ class PatientList extends React.Component {
                 key={index}
                 {...eachPatient}
                 onPatientRecordEdit={this.patientRecordEdit}
-                onPatientRecordDelete={this.patientRecordDelete} />
+                onPatientRecordDelete={this.patientRecordDelete}
+                onViewPatientHistory={this.viewPatientHistory} />
             ))
         )
     }

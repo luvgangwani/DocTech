@@ -47,6 +47,7 @@ class AddNewPatient extends React.Component {
 
         this.props.onAddNewPatientSubmit(patientObj);
         this.handleReset();
+        this.props.onDisplayHistoryForm(patientObj);
     }
 
     handleReset(){
