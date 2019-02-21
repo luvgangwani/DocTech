@@ -4,17 +4,29 @@ import History from './History';
 class HistoryList extends React.Component {
     constructor(props) {
         super(props);
+        this.historyEditClick = this.historyEditClick.bind(this);
+        this.historyDeleteClick = this.historyDeleteClick.bind(this);
+    }
+
+    historyEditClick(historyId){
+        this.props.onHistoryEdit(historyId);
+    }
+
+    historyDeleteClick(historyId){
+        this.props.onHistoryDelete(historyId);
     }
 
     render(){
 
-        const patientHistoryArr = this.props.patientHistoryArr;
+        const patientHistoryObj = this.props.patientHistoryObj;
 
         return(
-            patientHistoryArr.map((eachHistoryObj, index) => (
+            Object.keys(patientHistoryObj).map((eachHistoryId, index) => (
                 <History 
                 key={index}
-                {...eachHistoryObj}
+                {...patientHistoryObj[eachHistoryId]}
+                onHistoryEdit={this.historyEditClick}
+                onHistoryDelete={this.historyDeleteClick}
                 />
             ))
         );

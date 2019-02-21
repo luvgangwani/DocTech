@@ -10,6 +10,8 @@ class AddPatientHistory extends React.Component {
         this.handleSubmit=this.handleSubmit.bind(this);
         this.handleReset=this.handleReset.bind(this);
         this.displayPatientHistory = this.displayPatientHistory.bind(this);
+        this.historyEditClick = this.historyEditClick.bind(this);
+        this.historyDeleteClick = this.historyDeleteClick.bind(this);
     }
 
     handleSubmit(e){
@@ -34,10 +36,19 @@ class AddPatientHistory extends React.Component {
         this.refs.patientHistory.value="";
     }
 
+    historyEditClick(historyId){
+        this.props.onHistoryEdit(historyId);
+    }
+    historyDeleteClick(historyId){
+        this.props.onHistoryDelete(historyId);
+    }
+
     displayPatientHistory(historyData, patientId){
         if (Object.keys(historyData).length != 0 && Object.keys(historyData).includes(patientId)){
-            return <HistoryList 
-                    patientHistoryArr={historyData[patientId]} />
+            return <HistoryList
+                    patientHistoryObj={historyData[patientId]}
+                    onHistoryEdit={this.historyEditClick}
+                    onHistoryDelete={this.historyDeleteClick} />
         }
         else {
             return <p>This patient does not have any history records!</p>
